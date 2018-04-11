@@ -34,7 +34,7 @@ function verFotos(){
         echo "</tr>";
     }
     echo "</table>";
-
+//
 }
 
 ?>
