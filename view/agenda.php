@@ -1,4 +1,10 @@
 <?php
+session_start();
+//error_reporting(0);
+require_once('../controller/c_funciones.php');
+if (!valida_logueo()){
+  die('Inicia Sesion');
+}
 require_once('../model/conexion.php');
 $sql = "SELECT id, nombre, dni,start ,hora_i,hora_f,color,paquete FROM clases ";
 $req = $dbh->prepare($sql);
@@ -28,12 +34,12 @@ $events = $req->fetchAll();
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="agenda.php">Agenda</a></li>
-      <li class="active"><a href="Panelarticulos.php">Nuevo Articulo</a></li>
-      <li class="active"><a href="Admin2.php">Nueva Foto</a></li>
+      <li class="active"><a href="#">Agenda</a></li>
+      <li class="active"><a href="../view/panelarticulos.php">Nuevo Articulo</a></li>
+      <li class="active"><a href="../controller/c_acciones.php?accion=panel">Nueva Foto</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="index.php""><span class="glyphicon glyphicon-off"></span> Salir</a></li>
+      <li><a href="../controller/c_acciones.php?accion=salir"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
     </ul>
   </div>
 </nav>

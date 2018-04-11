@@ -1,3 +1,10 @@
+<?php 
+session_start();
+require_once('c_funciones.php');
+if (!valida_logueo()){
+  die('Inicia Sesion');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +32,7 @@ require_once '../model/valida_foto.php';
 	$color = $_POST['color'];
 	$paquete = $_POST['paquete'];
 
-		$Agen = new Clase;
+		$Agen = new Clase($nombre,$dni,$start,$hora_i,$hora_f,$color,$paquete);
 
 		$Agen->nombre = $nombre;
 		$Agen->dni = $dni;

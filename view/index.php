@@ -47,15 +47,15 @@ require_once('../controller/c_foto.php');
             </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">about</a>
+              <a class="nav-link js-scroll-trigger" href="#about">Acerca De</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Gallery</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Galeria</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact Us</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Contactenos</a>
             </li>
 
             <li class="nav-item">
@@ -63,7 +63,7 @@ require_once('../controller/c_foto.php');
             </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="Admin1.php">Admin</a>
+              <a class="nav-link js-scroll-trigger" href="logueo.php">Admin</a>
             </li>
           </ul>
         </div>
@@ -81,7 +81,7 @@ require_once('../controller/c_foto.php');
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">Para aprender ingles se necesita mas que un proposito</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">¿Saber mas?</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Â¿Saber mas?</a>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ require_once('../controller/c_foto.php');
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Tenemos lo que necesitas!</h2>
-            <p class="text-faded mb-4">Te puedes proponer aprender inglés, dejar de fumar,comenzar el gimnasio y hasta tocar guitarra.
+            <p class="text-faded mb-4">Te puedes proponer aprender inglÃ©s, dejar de fumar,comenzar el gimnasio y hasta tocar guitarra.
             Pero nada va a cambiar si no das el primer paso...!</p>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Empezar!</a>
           </div>
@@ -153,7 +153,7 @@ require_once('../controller/c_foto.php');
   <div class="slider-wrapper theme-mi-slider" id="portfolio">
     <div id="slider" class="nivoSlider">     
         <?php
-              $consultas=new Foto();
+              $consultas=new Foto($codigo,$foto);
               $filas=$consultas ->listarFotos();
                   foreach($filas as $fila){
                   echo "<img src='".$fila['foto']."' >";
@@ -169,7 +169,7 @@ require_once('../controller/c_foto.php');
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white"><span class="label label-default">Nuevo para usted!</span></h2>
-            <p class="text-faded mb-4">AHORA nuestros programas individuales y grupales incluyen una suscripción gratuita a sesiones privadas para practicar tu conversación y mejorar tu fluidez en el idioma.
+            <p class="text-faded mb-4">AHORA nuestros programas individuales y grupales incluyen una suscripciÃ³n gratuita a sesiones privadas para practicar tu conversaciÃ³n y mejorar tu fluidez en el idioma.
             20 min diarios
             Horarios a convenir de lunes a viernes</p>
           </div>
@@ -183,7 +183,7 @@ require_once('../controller/c_foto.php');
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Contactenos!</h2>
             <p class="mb-5">Si te inscribes antes del 28 de febrero recibe gratis
-            la matrícula y un 50% de descuento en los materiales.</p>
+            la matrÃ­cula y un 50% de descuento en los materiales.</p>
           </div>
         </div>
         <div class="row">

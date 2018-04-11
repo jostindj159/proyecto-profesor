@@ -1,3 +1,10 @@
+<?php 
+session_start();
+require_once('c_funciones.php');
+if (!valida_logueo()){
+  die('Inicia Sesion');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +31,8 @@ require_once '../model/valida_foto.php';
 	$area = $_POST['area'];
 	copy($ruta,$destino);
 
-		$Articulos = new Articulos;
+		$Articulos = new Articulos($titulo,$area,$foto);
 
-		
 		$Articulos->foto = $destino;
 		$Articulos->titulo = $titulo;
 		$Articulos->area = $area;

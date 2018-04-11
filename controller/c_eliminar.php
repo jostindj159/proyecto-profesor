@@ -1,3 +1,10 @@
+<?php 
+session_start();
+require_once('c_funciones.php');
+if (!valida_logueo()){
+  die('Inicia Sesion');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +27,6 @@ if(isset($_GET['codigo'])){
 	$objFoto = new Foto("","");
 	$objFoto->codigo = $codigo;
 	$mensaje=$objFoto->eliminarFila();
-	echo "<button type='button' class='btn btn-lg'><a href='../view/Admin2.php'>Volver</a></button>";
-
 }
 ?>
 </body>

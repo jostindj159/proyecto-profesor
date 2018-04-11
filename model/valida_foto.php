@@ -2,7 +2,7 @@
 class Foto{
 	var $codigo;
 	var $foto;
-	public function __construct($codigo,$foto){
+	public function __construct($codigo=null,$foto=null){
 		$this->codigo = $codigo;
 		$this->foto = $foto;
 	}
@@ -10,11 +10,11 @@ class Foto{
 	function guardar(){
 		try{
 			include('../model/conexion.php');			
-			$stmt = $dbh->prepare("INSERT INTO foto (foto) VALUES (:foto)  ");
+			$stmt = $dbh->prepare("INSERT INTO fot (foto) VALUES (:foto)  ");
 			$stmt->bindParam(':foto',$this->foto);		
 			if($stmt->execute()){
 				echo "<h1>Se añadio foto</h1></br>";
-				echo "<button type='button' class='btn btn-lg'><a href='../view/Admin2.php'>Volver</a></button>";
+				echo "<button type='button' class='btn btn-lg'><a href='c_acciones.php?accion=panel'>Volver</a></button>";
 			}
 		}catch (PDOException $e){
 			die("Error: ".$e->getMessage());
@@ -25,7 +25,7 @@ class Foto{
 		try{
 			include('../model/conexion.php');	
 			$rows=null;
-			$stmt = $dbh->prepare("SELECT codigo,foto FROM foto ");
+			$stmt = $dbh->prepare("SELECT codigo,foto FROM fot order by codigo desc");
 			$stmt ->execute();
 			while($result=$stmt->fetch()){
 				$rows[]=$result;
@@ -39,16 +39,18 @@ class Foto{
 	public function eliminarFila(){
 		try{
 			include('../model/conexion.php');
-			$stmt = $dbh->prepare("DELETE  FROM foto where codigo=:codigo");
+			$stmt = $dbh->prepare("DELETE  FROM fot where codigo=:codigo");
 			$stmt->bindParam(':codigo',$this->codigo);	
 			if($stmt->execute()){
 				echo "<h1>Eliminado</h1></br>";
+				echo "<button type='button' class='btn btn-lg'><a href='c_acciones.php?accion=panel'>Volver</a></button>";
 			};
 		}catch (PDOException $e){
 			die("Error: ".$e->getMessage());
 		}
 	}
 }
+
 Class Usuario{
 		public function usuario(){
 			try{
@@ -101,7 +103,8 @@ class Clase{
 				$stmt->bindParam(':paquete',$this->paquete);		
 				if($stmt->execute()){
 				echo "<h1>La clase se ha registrado!</h1></br>";
-				echo "<button type='submit' class='btn btn-info btn-lg' id='btnGuardar' name='btnGuardar'><a href='../view/agenda.php'>Volver</a></button>";
+				echo "<button type='button' class='btn btn-lg'><a href='c_acciones.php?accion=agenda'>Volver</a></button>";
+
 
 				}	
 			}catch (PDOException $e){
@@ -114,7 +117,7 @@ class Articulos{
 		var $titulo;
 		var $area;
 		var $foto;
-		public function __construct($titulo,$area,$foto){
+		public function __construct($titulo=null,$area=null,$foto=null){
 		
 		$this->titulo = $titulo;
 		$this->area = $area;
@@ -131,7 +134,8 @@ class Articulos{
 				$stmt->bindParam(':foto',$this->foto);		
 				if($stmt->execute()){
 				echo "<h1>Nuevo Articulo Creado!</h1></br>";
-				echo "<button type='submit' class='btn btn-info btn-lg' id='btnGuardar' name='btnGuardar'><a href='../view/Panelarticulos.php'>Volver</a></button>";
+				echo "<button type='button' class='btn btn-lg'><a href='c_acciones.php?accion=articulo'>Volver</a></button>";
+
 				}	
 			}catch (PDOException $e){
 				die("Error: ".$e->getMessage());

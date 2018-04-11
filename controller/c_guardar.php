@@ -1,3 +1,10 @@
+<?php 
+session_start();
+require_once('c_funciones.php');
+if (!valida_logueo()){
+  die('Inicia Sesion');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +26,7 @@ require_once '../model/valida_foto.php';
 	$ruta=$_FILES['foto']['tmp_name'];
 	$destino="../img/portfolio/profesores/".$foto;
 	copy($ruta,$destino);
-		$obj = new Foto;
+		$obj = new Foto($codigo,$foto);
 
 		//$obj->categoria = $categoria;
 		$obj->foto = $destino;

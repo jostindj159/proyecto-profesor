@@ -1,6 +1,6 @@
 <?php
 function verArticulos(){
-    $consultas=new Articulos();
+    $consultas=new Articulos($titulo,$area,$foto);
     $filas=$consultas ->listarArticulos();
     foreach($filas as $fila){
 
